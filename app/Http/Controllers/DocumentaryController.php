@@ -46,4 +46,16 @@ class DocumentaryController extends Controller
           return response()->json(['message' => 'Delete Failed']);
        }
     }
+
+    public function store(Request $request) {
+       // soon
+
+    }
+
+    public function update(Request $request, int $id)
+    {  // soon
+
+
+    }
+
 }
