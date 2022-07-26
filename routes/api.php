@@ -23,6 +23,8 @@ route::prefix('v1')->group(function(){
     Route::middleware([ProtectedRouteAuth::class])->group(function(){
         Route::put('/documentary/update/{id}','App\Http\Controllers\DocumentaryController@update');
         Route::delete('/documentary/delete/{id}','App\Http\Controllers\DocumentaryController@delete');
+        Route::post('/documentary/store', 'App\Http\Controllers\DocumentaryController@store');
+
         Route::post('/register', [AuthController::class, 'register']);
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/refresh', [AuthController::class, 'refresh']);
