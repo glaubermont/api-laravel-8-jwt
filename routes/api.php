@@ -20,8 +20,9 @@ route::prefix('v1')->group(function(){
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/documentary/getById/{id}','App\Http\Controllers\DocumentaryController@getById');
     Route::get('/documentary/getAll','App\Http\Controllers\DocumentaryController@getAll');
-    Route::post('/documentary/store', 'App\Http\Controllers\DocumentaryController@store');
+   
     Route::middleware([ProtectedRouteAuth::class])->group(function(){
+        Route::post('/documentary/store', 'App\Http\Controllers\DocumentaryController@store');
         Route::put('/documentary/update/{id}','App\Http\Controllers\DocumentaryController@update');
         Route::delete('/documentary/delete/{id}','App\Http\Controllers\DocumentaryController@delete');
         
