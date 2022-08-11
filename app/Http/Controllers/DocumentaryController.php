@@ -48,14 +48,33 @@ class DocumentaryController extends Controller
     }
 
     public function store(Request $request) {
-       // soon
+        //rules - soon
+       $documentary = new Documentary();
+       $documentary ->name = $request->name;
+       $documentary ->synopsis = $request->synopsis;
+       $documentary ->category = $request->category;
+       $documentary ->link = $request->link;
+       $documentary ->save();
+       if($documentary)
+         return response()->json(['message' => 'Successfully Store']);
+       else{
+         return response()->json(['message' => 'Store Failed']);
+       }
 
     }
 
     public function update(Request $request, int $id)
-    {  // soon
-
-
+    {    //rules - soon
+      $documentary = Documentary::find($id);
+      $documentary ->name = $request->name;
+      $documentary ->synopsis = $request->synopsis;
+      $documentary ->category = $request->category;
+      $documentary ->link = $request->link;
+      $documentary ->update();
+      if($documentary)
+      return response()->json(['message' => 'Successfully Updated']);
+    else{
+      return response()->json(['message' => 'Updated Failed']);
     }
-
+   }
 }
